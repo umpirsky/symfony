@@ -84,7 +84,7 @@
             </trans-unit>
             <trans-unit id="21">
                 <source>This value is too short. It should have {{ limit }} characters or more.</source>
-                <target>Värdet är för kort. Det ska vara {{ limit }} eller fler bokstäver.</target>
+                <target>Värdet är för kort. Det ska vara {{ limit }} bokstav eller mer.|Värdet är för kort. Det ska vara {{ limit }} bokstäver eller mer.</target>
             </trans-unit>
             <trans-unit id="22">
                 <source>This value should not be blank.</source>
