@@ -74,6 +74,20 @@ class CsrfValidationListenerTest extends TestCase
         $this->assertSame($data, $event->getData());
     }
 
+    /**
+     * @see https://github.com/symfony/symfony/issues/29882
+     */
+    public function testArrayCsrfToken()
+    {
+        $data = ['csrf' => []];
+        $event = new FormEvent($this->form, $data);
+
+        $validation = new CsrfValidationListener('csrf', $this->tokenManager, 'unknown', 'Invalid.');
+        $validation->preSubmit($event);
+
+        $this->assertNotEmpty($this->form->getErrors());
+    }
+
     public function testMaxPostSizeExceeded()
     {
         $serverParams = $this
